@@ -14,6 +14,8 @@ class Brands extends Model
     /** @use HasFactory<\Database\Factories\BrandsFactory> */
     use HasFactory;
 
+    protected $table = 'brands';
+
     public function products(): HasMany
     {
         return $this->hasMany(Products::class);

@@ -9,6 +9,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 #[Fillable(['product_id', 'image_path', 'is_primary', 'sort_order'])]
 class ProductImages extends Model
 {
+    protected $table = 'product_images';
+    
     public function product(): BelongsTo
     {
         return $this->belongsTo(Products::class);

@@ -15,6 +15,8 @@ class Products extends Model
     /** @use HasFactory<\Database\Factories\ProductsFactory> */
     use HasFactory;
 
+    protected $table = 'products';
+
     public function category(): BelongsTo
     {
         return $this->belongsTo(Categories::class);

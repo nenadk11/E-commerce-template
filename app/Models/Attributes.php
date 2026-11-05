@@ -13,6 +13,8 @@ class Attributes extends Model
     /** @use HasFactory<\Database\Factories\AttributesFactory> */
     use HasFactory;
 
+    protected $table = 'attributes';
+
     public function categories(): BelongsToMany
     {
         return $this->belongsToMany(Categories::class, 'category_attributes');

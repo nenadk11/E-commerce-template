@@ -15,6 +15,8 @@ class Categories extends Model
     /** @use HasFactory<\Database\Factories\CategoriesFactory> */
     use HasFactory;
 
+    protected $table = 'categories';
+
     public function parent(): BelongsTo
     {
         return $this->belongsTo(Categories::class, 'parent_id');
