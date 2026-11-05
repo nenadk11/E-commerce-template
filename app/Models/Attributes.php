@@ -2,18 +2,19 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Attributes\Table;
+use Database\Factories\AttributesFactory;
 use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 #[Fillable(['name', 'slug', 'data_type', 'unit', 'is_filterable'])]
+#[Table(name: 'attributes')]
 class Attributes extends Model
 {
-    /** @use HasFactory<\Database\Factories\AttributesFactory> */
+    /** @use HasFactory<AttributesFactory> */
     use HasFactory;
-
-    protected $table = 'attributes';
 
     public function categories(): BelongsToMany
     {

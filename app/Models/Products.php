@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Attributes\Table;
+use Database\Factories\ProductsFactory;
 use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -10,12 +12,11 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 #[Fillable(['name', 'slug', 'description', 'category_id', 'brand_id', 'is_active'])]
+#[Table(name: 'products')]
 class Products extends Model
 {
-    /** @use HasFactory<\Database\Factories\ProductsFactory> */
+    /** @use HasFactory<ProductsFactory> */
     use HasFactory;
-
-    protected $table = 'products';
 
     public function category(): BelongsTo
     {

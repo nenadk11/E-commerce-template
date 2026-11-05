@@ -2,15 +2,15 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Attributes\Table;
 use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 #[Fillable(['product_id', 'image_path', 'is_primary', 'sort_order'])]
+#[Table(name: 'product_images')]
 class ProductImages extends Model
 {
-    protected $table = 'product_images';
-    
     public function product(): BelongsTo
     {
         return $this->belongsTo(Products::class);
